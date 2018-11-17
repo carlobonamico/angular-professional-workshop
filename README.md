@@ -8,13 +8,13 @@ https://milan2018.codemotionworld.com/workshop/professional-angular/
 TODO 
 * [angular-professional-workshop-slides.pdf](angular-professional-workshop.pdf)
 
-#Labs
+# Labs
 * [labs.md](labs.md)
-
-#References
+ 
+# References
 TODO 
 
-#ABSTRACT
+# ABSTRACT
 You have adopted Angular for your projects because you experienced first-hand its productive and robust approach to HTML5 Application development, and the advantages of a Component-Oriented design based on Encapsulation and Separation of Responsibilities. However, to fully exploit the Power of Components, you need to aggregate them in a consistent and modular set, and to take advanced of advanced concepts. In this workshop we first share our experience in building several Component Libraries, from API Design concepts to advanced Component interaction patterns, from packaging and documentation to refactoring & interoperability. We then move to addressing advanced Angular topics such as Dynamic Templating, Reactive features, Change Detection and Performance, which are key to implementing challenging applicaitons with world-class User Experiences with Angular.
 
 # PREREQUIREMENTS
