@@ -121,6 +121,8 @@ For each module, hands-on lab will include
 
 
 ---
+class: center
+name: module-1
 ## Component-Based Design
 ---
 # TOPICS
@@ -128,12 +130,13 @@ For each module, hands-on lab will include
 * advantages of a Component-Based approach
 
 ---
+template: module-1
 ## Designing a Component Library
 ---
 # TOPICS
 * principles of API design
 * basic component patterns
-* “”smart””, “”dumb”” and “”stateless”” components
+* “smart”, “dumb” and “stateless” components
 * how to interconnect multiple collaborating Components to achieve complex UI interactions
 * separating responsibilities with Directives
 * separating responsibilities with ng-content composition
