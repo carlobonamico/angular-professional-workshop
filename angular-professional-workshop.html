@@ -14,14 +14,76 @@
         font-weight: normal;
       }
       .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
-      .slide-footer { width: 90% ; border: solid 1px red; display: inline-block; padding-right:3px; padding-top: 3px;  }
+      .remark-slide-content {
+        font-size: 24px;
+      }
+      .slide-footer {
+        width: 90% ;
+        max-height: 100px;
+        /* border: solid 1px red; */
+        display: inline-block;
+        padding-right:3px;
+        padding-top: 3px;
+      }
+      .slide-footer > img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+      .right-image {
+        float: right;
+        width: 200px;
+      }
+      .left-image {
+        float: left;
+        width: 200px;
+      }
+      .left-image > img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+      .pull-left {
+        float: left;
+        width: 47%;
+      }
+      .pull-right {
+        float: right;
+        width: 47%;
+      }
+      a {
+        font-size: 20px;
+      }
+
+      .aside {
+        float: right;
+        width: 300 px;
+        background-color: yellow;
+        border: 2px solid black;
+        padding: 5px;
+      }
     </style>
   </head>
   <body>
 
+    <script src="./mermaid.min.js"></script>
+    <link rel="stylesheet" href="./mermaid.css">
+    <script>mermaid.initialize({startOnLoad:true});</script>
+
     <script src="node_modules/remarker/vendor/remark.js" type="text/javascript">
     </script>
     <script type="text/javascript">
+
+/*
+remark.macros.upper = function () {
+  // `this` is the value in the parenthesis, or undefined if left out
+  return this.toUpperCase();
+};
+
+remark.macros.random = function () {
+  // params are passed as function arguments: ["one", "of", "these", "words"]
+  var i = Math.floor(Math.random() * arguments.length);
+  return arguments[i];
+};
+*/
       var slideshow = remark.create({
         sourceUrl: 'angular-professional-workshop.md',
         // Set the slideshow display ratio
@@ -51,7 +113,13 @@
         slideNumberFormat: '%current% of %total%',
 
         // Enable or disable counting of incremental slides in the slide counting
-        countIncrementalSlides: false
+        countIncrementalSlides: false,
+        highlightStyle: "default",
+        // arta, ascetic, dark, default, far, github, googlecode, idea, ir-black, magula, monokai, rainbow, solarized-dark, solarized-light, sunburst, tomorrow, tomorrow-night-blue, tomorrow-night-bright, tomorrow-night, tomorrow-night-eighties, vs, zenburn.
+        highlightLines: true,
+        highlightSpans: true
+//Inside code blocks, highlight (the background of) content between special delimiters.
+
       });
     </script>
   </body>
