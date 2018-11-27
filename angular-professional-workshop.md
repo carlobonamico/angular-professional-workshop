@@ -2481,38 +2481,13 @@ class:
 
 ---
 
-
-## Concept 1 - Naming
--reading code vs writing code
-- what is a good name?
-- same but different: the importance of conventions
-
-
-
-##Concept 3 - What's in a good function?
-- single responsibility
-- separing inputs from outputs
-- if you have to do 3 things, make 4 functions
-- primitives and orchestrators
-
-
-
-##Concept 4 - What's in a good class? Design Principles
-- Single Responsibility Principle
-- collaborating with other classes
-- composition vs inheritance (and the Open/Closed principle)
-- Dependency Injection
-- interfaces and the importante of Contracts
-
-
-
 ## Clean Code
 * It cannot solve all development problems...
 
 * But it can make them way more tractable!
 
 
-
+---
 ## Design Principles
 Once we have got the basics covered, then we will need to understand the Software Dynamics
 * vs the nature (and Laws) of Software
@@ -2524,7 +2499,7 @@ Basically, Common Sense applied to software design
 > C.B., about 2013
 
 
-
+---
 ## Improve our code
 It takes a Deliberate approach and constant effort
 
@@ -2534,25 +2509,12 @@ It takes a Deliberate approach and constant effort
 >Bruno Munari
 
 
-
+---
 ##reading code vs writing code
 >What is written without effort is in general read without pleasure.
 >
 >Samuel Johnson
-
-Most code is written once, but read
-* every time you need to fix a bug
-* to add new features
-* by other developers
-  * including your future self 
-
-
-
-##what is a good name?
-* Ideas?
-
-
-
+---
 ## What is a good name
 <img src="images/naming.png">
 
@@ -2567,60 +2529,7 @@ http://llewellynfalco.blogspot.it/p/infographics.html
 
 
 
-## Single Responsibility
->Each function should do 1 thing
-
-Or even better, have a single responsibility
-* and reason to change
-
-
-
-## how to find responsibilities? 
-Ask yourself questions...
-
-* What? 
-* Who?
-* When?
-* Why?
-* Where?
-
-And put the answer in different sub-functions
-
-
-
-## Inputs vs outputs
-* make inputs clear
-* limit / avoid output parameters
-
-
-
-## 3 things, 4 functions
-## Primitives, Orchestrators, level of abstraction
-* Primitives: small, focused, typically use-case independent
-* Orchestrators: implement use-cases by combining primitives
-
-* rinse and repeat over multiple levels of abstraction
-
-* benefits:
-  * more reusable
-  * easier to test
-
-
-
-##Single Responsibility Principle
-Have you ever seen your grandmother put dirty clothes in the fridge?
-
-Or biscuits in the vegetable box?
-
-So, why to we do this all the time in our code? 
-
-
-
-##Single Responsibility Principle
-Responsibility == reason to change
-
-
-
+---
 ## From bad to good
 Incremental transformation
 
@@ -2628,15 +2537,7 @@ Incremental transformation
 
 
 
-## In steps
-* Each step should not change the functional properties of the system
-* and improve the non-functional ones
-
-* separate adding features from refactoring
-  * don't do both in the same step
-
-
-
+---
 ## The Boy Scout Rule
 >Leave the campsite a little better than you found it
 
@@ -2645,7 +2546,7 @@ Incremental transformation
 The power of compounding many small changes _in the same direction_
 * 1% time
 
-
+---
 ## Learning to learn
 * Kathy Sierra
 * https://www.youtube.com/watch?v=FKTxC9pl-WM
