@@ -40,6 +40,8 @@ You have adopted Angular for your projects because you experienced first-hand it
 
 However, to fully exploit the Power of Components, you need to aggregate them in a consistent and modular set, and to take advanced of advanced concepts. 
 
+---
+# ABSTRACT
 In this workshop we first share our experience in building several Component Libraries, 
 - from API Design concepts to advanced Component interaction patterns
 - from packaging and documentation 
@@ -48,6 +50,7 @@ In this workshop we first share our experience in building several Component Lib
 We then move to addressing advanced Angular topics such as Dynamic Templating, Reactive features, Change Detection and Performance, which are key to implementing challenging applicaitons with world-class User Experiences with Angular.
 
 ---
+exclude: false
 # WHO THE WORKSHOP IS DEDICATED TO?
 Angular Developers who 
 - master the basics of the framework 
@@ -80,7 +83,6 @@ npm install -g @angular/cli http-server
 ---
 ## Visual Studio Code
 * Community has incresed support for developing Angular applications.
-* lots of useful extensions
 
 ## Visual Studio Code extensions for Angular
 * https://medium.com/frontend-coach/7-must-have-visual-studio-code-extensions-for-angular-af9c476147fd
@@ -88,8 +90,6 @@ npm install -g @angular/cli http-server
 * Angular Language Service
 * Angular Support (per la navigazione html-componente e viceversa)
 * Typescript Hero or GodMode 
-
-Opzionali:
 * Angular Files (per generazione di componenti da gui, stile angular-cli)
 * Angular 4 snippets di John Papa
 * VersionLens per maggiori dettagli in package.json
@@ -170,13 +170,14 @@ For each module, hands-on lab will include
 
 ---
 ## Revising key Angular concepts
+Nrwl Angular Essentials
 * https://blog.nrwl.io/essential-angular-7-blog-posts-book-7f7d9923773d
 
 Angular 4 with Yakov Fain
-https://www.youtube.com/watch?v=k8r76d8QzXs
+* https://www.youtube.com/watch?v=k8r76d8QzXs
 
 TypeScript with Dan Wahlin
-https://www.youtube.com/watch?v=4xScMnaasG0&feature=em-subs_digest-vrecs
+* https://www.youtube.com/watch?v=4xScMnaasG0&feature=em-subs_digest-vrecs
 
 ---
 name: module
@@ -289,15 +290,6 @@ When we look at the parent html (index.html or parent component)
 * we clearly see how components are linked and interact
 ???
 TODO CHECK
----
-## Encapsulation 
-Changing the Controller or the template of a component has a much reduced risk of introducing regressions elsewhere
-
-The robustness of the application increases if the components are smaller
-
-See also the Clean Code principles on SRP and Class design
-???
-TODO CHECK
 
 ---
 template: module
@@ -318,38 +310,128 @@ template: module
 # Designing a Component Library
 To fully exploit the Power of Components, you need to aggregate them in a consistent and modular set. 
 
+Goals
+* more reuse
+* ensure Visual and UX Consistency
+* increase developer productivity
+
+and also
+* faster builds
+* focus Test and Documentation effort
 ???
 TODO image
 ---
-# Always Remember!
+# Types of Component Libraries
+Also see Atomic Design
+* Atoms - individual widgets   
+  * e.g. input, button, panel
 
-## Your Components and Libraries have TWO users 
-* Application users
-* Application developers
+* Molecules
+  * e.g. modal, accordion, search filter
 
-So it is essential to take into account also API Design
+* Complex Organisms (domain-independent)
+  * e.g. Grid
+
+* Complex Organisms (domain-dependent)
+  * e.g. Digital Signature, Contact Address book
 ---
-# Principles of API Design
-* TODO
-- from clean code
-- from presentation
+# Key Ideas
+Consistency
+* UX
+* Visual
+* Developer Experience
 
+Separation of Responsibilities
+
+Composability 
+---
+# Basic Component Design and Interaction Patterns
+
+While developing a number of application, several common patterns emerge
+
+???
+TODO from presentation 
+---
+
+name: tree_of_components_9
+background-image: url(images/codemotion/25.png)
+background-size: contain
+---
+name: types_of_components
+background-image: url(images/codemotion/29.png)
+background-size: contain
+
+---
+# Designing Component Inputs
+Configuration inputs
+* attributes 
+* @Input()
+* Global Settings (Default + Override)
+
+Data/state inputs
+* object/Array
+* Observables
+* DataSource
+
+???
+configuration components?
+---
+# Plain input vs observable
+Use object/array input for
+* ...
+
+Use Observable input for
+* ...
+---
+# Pass Observable from 
+* Input
+* Service
+
+## Resolve Observable
+* within the component
+* out of the component
+  * | async
+  * *ngIf="stream | async as lastValue"
+---
+# Why a DataSource
+* The component needs to trigger Data Refresh   
+  * e.g. Table with paging, sorting and filtering
+
+* Complex Component Lifecycle
+  * e.g. Digital Signature / Typed file Upload
+
+---
+# Why a DataSource
+* The component needs to trigger Data Refresh   
+  * e.g. Table with paging, sorting and filtering
+
+* Complex Component Lifecycle
+  * e.g. Digital Signature / Typed file Upload
+
+---
+name: types_of_components_2_flow_up
+background-image: url(images/codemotion/30.png)
+background-size: contain
+
+---
+# Publishing events
+Never communicate directly with siblings
+
+Publish events towards Parent Component
+* @Output() + emit
+
+Towards shared Observalbe Streams
+* next()
+
+In both cases, events should express 
+* what's happened (see DDD Events)
+* intent, not what to do
 ---
 # Component Design Principles
 * minimize Coupling
 * maximize Cohesion
 * every component does one thing Well
 
-Achieve complex behaviours / layouts / interactions by combining multiple interacting components
-
----
-## Key idea - separate responsibilities
-
-In many ways
-
-Paraphrasing Bruce Eckel, __Make more components__
-???
-TODO
 ---
 ## A component cannot do everything by himself
 To implement complex logics, a component needs to interact with 
@@ -359,21 +441,49 @@ To implement complex logics, a component needs to interact with
 
 So on one hand we separate Responsibilities, on the other hand we need interaction 
  
+Achieve complex behaviours / layouts / interactions by combining multiple interacting components
+
+---
+name: types_of_components
+background-image: url(images/codemotion/33.png)
+background-size: contain
+---
+## Key idea - separate responsibilities
+
+In many ways
+* layout from content
+* primitives from orchestrators
+* presentation from interaction with backend
+* single field vs set of fields
+* validation vs presentation of errors
+* ...
+
+Paraphrasing Bruce Eckel, __Make more components__
+???
+TODO
+
 ---
 # Separation of Responsibilities
 Examples
-* TODO
 
-While developing a number of application, several common patterns emerge
----
-# Basic Component Design and Interaction Patterns
-
-???
-TODO from presentation 
 
 ---
-# Pattern: “smart”, “dumb” and “stateless” components
+# Pattern: smart, dumb and stateless components
 
+---
+name: types_of_components
+background-image: url(images/codemotion/26.png)
+background-size: contain
+
+---
+name: smart_vs_dumb
+background-image: url(images/codemotion/27.png)
+background-size: contain
+
+---
+name: smart_vs_dumb_advantages
+background-image: url(images/codemotion/28.png)
+background-size: contain
 
 ---
 # Advantages
@@ -381,195 +491,7 @@ TODO from presentation
 * we can create multiple instances of the components linked to different data
 
 ---
-
-## Composition
-If we apply this pattern at the application level, 
-
-Components form a hierarchy
-
-We achieve complex behaviours by collaboration of many simpler components
-
-
-
-
-
-
-
-## Separating responsibilities
-* the ``<message-list>`` component is responsible for 
-  * displaying the list
-  * navigating in the list
-  * showing which element is selected 
-
-But what to do when the User selects a message can change in different Use Cases
-
-So let's keep this OUT of the ``message-list`` component
-
-
-
-## Managing an action with both internal and external Consequences
-When a user selects a message, two different thing must take place: 
-* within the component, the current message must be outlined
-* outside the component, other components must be notified of the selection and perform actions
-  * enable buttons
-  * update other views
-
----
-# Patterns: 
----
-
-
-
----
-# Pattern: Detect Parent Component
-* with explicit parameter
-* with ``@Optional`` Dependency Injection
-
----
-# Pattern: Register with Parent Component
-
-
----
-# TODO check DI with Content transclusion
-
----
-# Inject Parent components inside child components
-
-```typescript
-@Component({
-  selector: 'my-comp'
-  ...  
-})
-class MyComponent {
-  constructor(@Optional() private container:MyContainer) {
-    
-  }
-
-  handleClick = function(){
-    if(this.container){
-      this.container.foo();      
-    }
-  }
-}
-```
----
-# LAB 
-Create the LogService and inject it into the other services
-
-
----
-# References
-Injector Hierarchy
-* https://angular.io/docs/ts/latest/guide/dependency-injection.html
-* https://blog.thoughtram.io/angular/2015/05/18/dependency-injection-in-angular-2.html
----
-# Pattern: Configure Components with Injection Tokens
-When you register a provider with an injector, you associate that provider with a dependency injection token. The injector maintains an internal token-provider map that it references when asked for a dependency.
-
-```typescript
-
-export const TITLE = new InjectionToken<string>('title');
-```
-```
-...
-providers: [
-  ...
-    LocalStorageService,
-    { provide: TITLE,         useValue:   'Hero of the Month' }, 
-  ]
-...
-```
-On the component
-```typescript
-
-constructor(@Inject(TITLE) public title: string){}
-```
----
-# OPTIONAL 
-# Pattern: Plug-ins
-
-# Advanced References
-
-https://blog.thoughtram.io/angular2/2015/11/23/multi-providers-in-angular-2.html
-
-
-
-
----
-# Separating responsibilities with Directives
-
-# An example of Directive
-```typescript
-import { Directive, ElementRef, Input } from '@angular/core';
-
-@Directive({ selector: '[myHighlight]' })
-export class HighlightDirective {
-    constructor(el: ElementRef) {
-       el.nativeElement.style.backgroundColor = 'yellow';
-    }
-}
-```
----
-## Common Utility directives: HostListener
-
-```typescript
-
-class CardHoverDirective {
-  constructor(private el: ElementRef,
-              private renderer: Renderer) 
-    // renderer.setElementStyle(el.nativeElement, 'backgroundColor', 'gray');
-  }
-
-  @HostListener('mouseover') onMouseOver() {
-    let part = this.el.nativeElement.querySelector('.card-text')
-    this.renderer.setElementStyle(part, 'display', 'block');
-  }
-}
-```
----
-## Common Utility directives: HostBinding
-
-```typescript
-
-class CardHoverDirective {
-  @HostBinding('class.card-outline-primary')private ishovering: boolean;
-
-  constructor(private el: ElementRef,
-              private renderer: Renderer) {
-    // renderer.setElementStyle(el.nativeElement, 'backgroundColor', 'gray');
-  }
-
-  @HostListener('mouseover') onMouseOver() {
-    let part = this.el.nativeElement.querySelector('.card-text');
-    this.renderer.setElementStyle(part, 'display', 'block');
-    this.ishovering = true;
-  }
-
-  @HostListener('mouseout') onMouseOut() {
-    let part = this.el.nativeElement.querySelector('.card-text');
-    this.renderer.setElementStyle(part, 'display', 'none');
-    this.ishovering = false;
-  }
-}
-```
----
-## HostBinding and HostListener examples
-
-https://alligator.io/angular/hostbinding-hostlistener/
-
-http://plnkr.co/edit/EgsmbXMN7s7YYDYIu9N8?p=preview
----
-# Optional Lab
-
-Use Host @HostBinding and @HostListener to 
-* On hovering
-    - create a directive changing the background color of a folder on hovering 
-    - Showing an message under the folder list with the name of the folder
-
-
-
----
-# Separating responsibilities with ng-content composition
+# Separating Layout from Content with ng-content composition
 # Example
 
 ```typescript
@@ -663,17 +585,206 @@ export class CardComponent {
 </div>
 ```
 ---
-* layout vs ui components
+# More Patterns
 ---
-* Decorator components
+# Pattern: Register with Parent Component
+Example: 
+* TabGroup vs Tab
+
+Top-Down Approach
+* ViewChildren / ContentChildren
+
+Bottom-Up Approach
+* Inject parent in child and register child
+
+???
+# TODO check DI with Content transclusion
+
 ---
-* Decorator directives
+# Inject Parent components inside child components
+
+```typescript
+@Component({
+  selector: 'my-comp'
+  ...  
+})
+class MyComponent {
+  constructor(@Optional() private container:MyContainer) {
+    
+  }
+
+  handleClick = function(){
+    if(this.container){
+      this.container.foo();      
+    }
+  }
+}
+```
+---
+# LAB 
+Create the LogService and inject it into the other services
+
+
+---
+# References
+Injector Hierarchy
+* https://angular.io/docs/ts/latest/guide/dependency-injection.html
+* https://blog.thoughtram.io/angular/2015/05/18/dependency-injection-in-angular-2.html
+---
+# Pattern: Detect Parent Component
+* with explicit parameter
+* with Dependency Injection
+```
+@Optional()
+```
+
+
+---
+# Pattern: Configure Components with Injection Tokens
+When you register a provider with an injector, you associate that provider with a dependency injection token. The injector maintains an internal token-provider map that it references when asked for a dependency.
+
+```typescript
+
+export const TITLE = new InjectionToken<string>('title');
+```
+```
+...
+providers: [
+  ...
+    LocalStorageService,
+    { provide: TITLE,         useValue:   'Hero of the Month' }, 
+  ]
+...
+```
+On the component
+```typescript
+
+constructor(@Inject(TITLE) public title: string){}
+```
+---
+# Pattern: Plug-ins with multi providers
+
+# Advanced References
+* https://blog.thoughtram.io/angular2/2015/11/23/multi-providers-in-angular-2.html
+
+
+---
+# Decorator components
+E.g. InputContainer
+---
+# Decorator directives
+## An example of Directive
+```typescript
+import { Directive, ElementRef, Input } from '@angular/core';
+
+@Directive({ selector: '[myHighlight]' })
+export class HighlightDirective {
+    constructor(el: ElementRef) {
+       el.nativeElement.style.backgroundColor = 'yellow';
+    }
+}
+```
+---
+## Common Utility directives: HostListener
+
+```typescript
+
+class CardHoverDirective {
+  constructor(private el: ElementRef,
+              private renderer: Renderer) 
+    // renderer.setElementStyle(el.nativeElement, 'backgroundColor', 'gray');
+  }
+
+  @HostListener('mouseover') onMouseOver() {
+    let part = this.el.nativeElement.querySelector('.card-text')
+    this.renderer.setElementStyle(part, 'display', 'block');
+  }
+}
+```
+---
+## Common Utility directives: HostBinding
+
+```typescript
+
+class CardHoverDirective {
+  @HostBinding('class.card-outline-primary')private ishovering: boolean;
+
+  constructor(private el: ElementRef,
+              private renderer: Renderer) {
+    // renderer.setElementStyle(el.nativeElement, 'backgroundColor', 'gray');
+  }
+
+  @HostListener('mouseover') onMouseOver() {
+    let part = this.el.nativeElement.querySelector('.card-text');
+    this.renderer.setElementStyle(part, 'display', 'block');
+    this.ishovering = true;
+  }
+
+  @HostListener('mouseout') onMouseOut() {
+    let part = this.el.nativeElement.querySelector('.card-text');
+    this.renderer.setElementStyle(part, 'display', 'none');
+    this.ishovering = false;
+  }
+}
+```
+---
+## HostBinding and HostListener examples
+
+https://alligator.io/angular/hostbinding-hostlistener/
+
+http://plnkr.co/edit/EgsmbXMN7s7YYDYIu9N8?p=preview
+---
+# Optional Lab
+
+Use Host @HostBinding and @HostListener to 
+* On hovering
+    - create a directive changing the background color of a folder on hovering 
+    - Showing an message under the folder list with the name of the folder
+
+
 ---
 # Summary of composition approaches
-||Pattern|| Use for||
-|||
-|||
 
+---
+# Always Remember!
+
+## Your Components and Libraries have TWO users 
+* Application users
+* Application developers
+
+So it is essential to take into account also API Design
+
+---
+# Principles of API Design
+* What is written without effort, is read without pleasure
+* principle of least astonishment
+* consistency, consistency, consistency
+* sensible defaults
+---
+# Naming matters
+Consistency
+
+conventions
+* prefix for component Names
+
+Common scheme 
+
+Common concepts
+* reuse mental models
+---
+background-image: url(images/naming.png)
+# Names
+---
+# A good API
+Makes the core set of tasks easy
+
+Makes complex tasks possible
+
+Prevents errors
+* or make them easy to catch 
+
+---
+# Design vs Refactoring
 ---
 template: module
 ## Implementing a Component Library
@@ -701,7 +812,7 @@ Form Model vs Form API
 ---
 # Template-Driven Form recipe
 * include `FormsModule` in the module`imports: []` section
-  * ```import { FormsModule }   from '@angular/forms';```
+`import { FormsModule }   from '@angular/forms';`
 * add the `<form>` tag
 * include `name` attribute for each `input` tag
   * e.g. `<input type="text" name="userName">`
@@ -709,6 +820,7 @@ Form Model vs Form API
   * `[(ngModel)]="user.userName"`
 
 * Optionally add validations e.g. `required` or `[required]="conditional expression"`
+
 ---
 # Advanced Forms Features
 * Give the form a name
@@ -743,9 +855,6 @@ Form Model vs Form API
 .ng-touched
 ```
 e.g.
-```html
-```
-
 ```css
 .ng-valid[required], .ng-valid.required  {
   border-left: 5px solid #42A948; /* green */
@@ -832,15 +941,11 @@ import {ControlValueAccessor} from '@angular/forms';
 export class FormTextComponent implements ControlValueAccessor {  
   private innerValue: string;
 
-
   private changed = new Array<(value: string) => void>();
-  private touched = new Array<() => void>();
-
 
   get value(): string {
     return this.innerValue;
   }
-
 
   set value(value: string) {
     if (this.innerValue !== value) {
@@ -848,13 +953,6 @@ export class FormTextComponent implements ControlValueAccessor {
       this.changed.forEach(f => f(value));
     }
   }
-
-
-  touch() {
-    this.touched.forEach(f => f());
-  }
-
-
   writeValue(value: string) {
     this.innerValue = value;
   }
@@ -863,6 +961,14 @@ export class FormTextComponent implements ControlValueAccessor {
   registerOnChange(fn: (value: string) => void) {
     this.changed.push(fn);
   }
+```
+---
+```ts
+  private touched = new Array<() => void>();
+
+  touch() {
+    this.touched.forEach(f => f());
+  }
 
 
   registerOnTouched(fn: () => void) {
@@ -870,6 +976,10 @@ export class FormTextComponent implements ControlValueAccessor {
   }
 }
 ```
+---
+# LAB
+---
+# Validators
 ---
 # Default Validators
 Available within Angular itself
@@ -903,7 +1013,7 @@ Work "as is" with Reactive Forms
 
 * https://angular.io/guide/form-validation#custom-validators
 ---
-# With Parameters ???
+# With Parameters
 REWRITE 
 Essentially, to pass parameters to a custom validator you need to follow these steps:
 
@@ -999,7 +1109,11 @@ function validateEmailFactory(emailBlackList: EmailBlackList) {
     };
   };
 }
+```
+---
+# Custom Validation 2
 
+```typescript
 @Directive({
   selector: '[validateEmail][ngModel]',
   providers: [
@@ -1024,7 +1138,7 @@ export class EmailValidator {
 
 https://blog.thoughtram.io/angular/2016/03/14/custom-validators-in-angular-2.html
 
-
+---
 # Custom Validation messages
 ```html
  <input type="text" id="name"
@@ -1078,6 +1192,7 @@ Topics ordering
 # Column - Field configuration
 As an "options" @Input
 
+As content "empty" components
 ---
 # Where/How to get Data
 * plain JS Array
@@ -1085,11 +1200,7 @@ As an "options" @Input
 * DataSource interface
 * Paged / Rich DataSource interface
 
----
-# TODO - discuss pros and cons
-
----
-# Idea - as a DSL
+pros and cons
 
 ---
 # Customizing what's rendered
@@ -1160,7 +1271,7 @@ class MyComponent implements OnDestroy {
 ```
 ---
 ## Lab 05
-Into the message-list component
+implementing filtering in a ComboBox
 
 Implement the ngOnChanges callback
 
@@ -1172,16 +1283,12 @@ https://angular.io/docs/ts/latest/guide/lifecycle-hooks.html
 
 https://teropa.info/blog/2016/03/06/writing-an-angular-2-template-directive.html
 
-
-
-???
-Change Detection vs observables
----
-# Example: implementing filtering in a ComboBox
 ---
 # Performance aspects
 * when to filter / sort
 * Virtualization
+???
+Change Detection vs observables
 
 ---
 # Content Personalization
@@ -1199,6 +1306,52 @@ Try using ng-content in the Combo
 * but there's a way: ng-template
 
 https://blog.angular-university.io/angular-ng-template-ng-container-ngtemplateoutlet/
+
+---
+# Defining Templates
+Il template va definito nell' html
+
+o con un id es #nameCellTemplate
+```
+            <ng-template #nameCellTemplate let-data>
+              <div *ngIf="data.type === 'Person'">
+                      <br>{{data.name}}
+
+<table>
+
+ <table-column id='expColumn' field='exp' templateId="nameCellTemplate">
+
+```
+oppure in maniera "posizionale" come figlio di un altro tag che poi lo cerca con un
+@ContentChild(TemplateRef) cellTemplate: TemplateRef<any>;
+o simile.
+```
+ <table-column id='expColumn' field='exp'>
+            <ng-template let-data>
+              <div *ngIf="data.type === 'Person'">
+                      <br>{{data.name}}
+```
+Il let-data serve per rendere disponibile una variabile implicita.
+---
+# Nel Componente
+Lato codice  del componente che genera la <td>
+
+Nell' HTML, all' interno di un <tr *ngFor="let currentRowItem of rowItems">
+<td>
+            <ng-container *ngIf="!column.template">{{ _getCellValueForColumn(data , field) }}</ng-container>
+            <ng-container *ngIf="column.template && !column.expandable">
+                <ng-container *ngTemplateOutlet="column.template; context: { $implicit: currentRowItem }"></ng-container>
+            </ng-container>
+</td>
+
+Per passare una variabile implicita si fa cosi:
+
+http://www.bentedder.com/angular-4-templates-passing-methods-context-ngTemplateOutlet-ngTemplateOutletContext/
+
+---
+# Riferimenti
+https://blog.angular-university.io/angular-ng-template-ng-container-ngtemplateoutlet/
+
 
 ---
 # Example
@@ -1247,7 +1400,7 @@ export class CardComponent {
 <ng-container *ngTemplateOutlet="loading"></ng-container>
 ```
 ---
-# In a compoent
+# In a component
 ```html
 @Component({
   selector: 'app-root',
@@ -1260,6 +1413,7 @@ export class CardComponent {
 </ng-container>
 `})
 ```
+???
 this template, unlike the previous templates also has one input variable (it could also have several)
     the input variable is called lessonsCounter, and it's defined via a ng-template property using the prefix let-
     The variable lessonsCounter is visible inside the ng-template body, but not outside
@@ -1316,49 +1470,6 @@ The let attribute is constructed like this: let-templatevar="inputvar" where tem
 <toggle [layoutTemplate]="myTemplate"></toggle>
 <ng-template #myTemplate></ng-template>
 ```
----
-Il template va definito nell' html
-
-o con un id es #nameCellTemplate
-
-            <ng-template #nameCellTemplate let-data>
-              <div *ngIf="data.type === 'Person'">
-                      <br>{{data.name}}
-
-<table>
-
- <table-column id='expColumn' field='exp' templateId="nameCellTemplate">
-
-
-oppure in maniera "posizionale" come figlio di un altro tag che poi lo cerca con un
-@ContentChild(TemplateRef) cellTemplate: TemplateRef<any>;
-o simile.
-
- <table-column id='expColumn' field='exp'>
-            <ng-template let-data>
-              <div *ngIf="data.type === 'Person'">
-                      <br>{{data.name}}
-
-Il let-data serve per rendere disponibile una variabile implicita.
-
-
-Lato codice  del componente che genera la <td>
-
-Nell' HTML, all' interno di un <tr *ngFor="let currentRowItem of rowItems">
-<td>
-            <ng-container *ngIf="!column.template">{{ _getCellValueForColumn(data , field) }}</ng-container>
-            <ng-container *ngIf="column.template && !column.expandable">
-                <ng-container *ngTemplateOutlet="column.template; context: { $implicit: currentRowItem }"></ng-container>
-            </ng-container>
-</td>
-
-Per passare una variabile implicita si fa cosi:
-
-http://www.bentedder.com/angular-4-templates-passing-methods-context-ngTemplateOutlet-ngTemplateOutletContext/
-
----
-# Riferimenti
-https://blog.angular-university.io/angular-ng-template-ng-container-ngtemplateoutlet/
 
 ---
 # Refactoring
@@ -1366,12 +1477,6 @@ https://blog.angular-university.io/angular-ng-template-ng-container-ngtemplateou
 * Expand-Contract pattern
 * deprecation
 * console warnings
-
----
-track by
-
-https://toddmotto.com/angular-ngfor-template-element
-
 
 ---
 template: module
@@ -1401,19 +1506,15 @@ Requirements change slightly
 
 ---
 # Providing Type Information
-``.d.ts`` files
+`.d.ts` files
 
 examples
 ---
 ## Build Process
-asd
----
 ## Metadata Processing
-
-
 ---
 ## Runtime loading
-``import``
+`import`
 
 ---
 ## Library Format
@@ -1455,7 +1556,21 @@ ng build --prod
 
 But... no methods to build a library... until yesterday!
 
+---
+## Angular Library Format
+The Angular Team has summarized the key requirements for redistributing code
+* [Angular Package Format
+](https://docs.google.com/document/d/1CZC2rcpxffTDfRDs6p1cfbmKNLA6x5O-NtkJglDaBVs/preview)
 
+Packaging Angular
+https://www.youtube.com/watch?v=unICbsPGFIA&feature=em-subs_digest-vrecs
+
+
+---
+For a long time each project had to implement this process ad-hoc.
+
+Then ng-packagr emerged thanks to David Herges
+* https://github.com/ng-packagr/ng-packagr
 ---
 # packaging a library before Angular 6
 
@@ -1467,6 +1582,25 @@ https://github.com/dherges/ng-packagr
 
 * a Yeoman generator
 https://github.com/jvandemo/generator-angular2-library
+
+---
+## Moving to Angular 6+
+The Angular CLI build process became more extensible, 
+tight collaboration between David and the Angular Team resulted in 
+integrating Library support in the @angular/cli
+
+Workspace concept
+* set of multiple projects
+* Application (app) projects
+* Library (lib) projects
+
+---
+## Libraries with Angular CLI How To
+
+
+See also 
+* https://blog.angularindepth.com/creating-a-library-in-angular-6-87799552e7e5
+* https://blog.angularindepth.com/creating-a-library-in-angular-6-part-2-6e2bc1e14121
 
 
 ---
@@ -1563,80 +1697,6 @@ ng serve demo-app
 ng serve demo-website
 ```
 
----
-## Angular Library Format
-The Angular Team has summarized the key requirements for redistributing code
-* [Angular Package Format
-](https://docs.google.com/document/d/1CZC2rcpxffTDfRDs6p1cfbmKNLA6x5O-NtkJglDaBVs/preview)
-
-Packaging Angular
-https://www.youtube.com/watch?v=unICbsPGFIA&feature=em-subs_digest-vrecs
-
-
----
-For a long time each project had to implement this process ad-hoc.
-
-Then ng-packagr emerged thanks to David Herges
-* https://github.com/ng-packagr/ng-packagr
----
-## Using ng-packagr
-see before
----
-## Moving to Angular 6+
-The Angular CLI build process became more extensible, 
-tight collaboration between David and the Angular Team resulted in 
-integrating Library support in the @angular/cli
-
-Workspace concept
-* set of multiple projects
-* Application (app) projects
-* Library (lib) projects
-
----
-## Libraries with Angular CLI How To
-
-
-See also 
-* https://blog.angularindepth.com/creating-a-library-in-angular-6-87799552e7e5
-* https://blog.angularindepth.com/creating-a-library-in-angular-6-part-2-6e2bc1e14121
-
----
-## Create a project
-```
-ng new example-ng6-lib-app
-rename example-ng6-lib-app example-ng6-lib
-cd example-ng6-lib
-```
----
-## Create the Library Module
-```
-ng generate library example-ng6-lib --prefix=enl
-
-ng generate component foo --project=example-ng6-lib
-
-```
-
-prefix
-
-Have a look at package.json and angular.json
-
-Library package.json
-
-public_api.ts
-
-export * from './lib/foo/foo.component';
-
----
-## Building the library
-`` ng build name-lib``
----
-## Referencing the Library
-
-import { ExampleNg6LibModule } from 'example-ng6-lib';
-This works because when importing a library by name, Angular CLI looks first in the tsconfig.json paths and then in node_modules.
-
-Imports vs Exports
-
 
 ---
 # Paths in tsconfig.json
@@ -1646,7 +1706,7 @@ For the test app
 Live Reload
 
 ---
-packaging
+# packaging
 "scripts": {
   ...
   "npm_pack": "cd dist/example-ng6-lib && npm pack",
@@ -1655,6 +1715,8 @@ packaging
 
 
 npm install ../example-ng6-lib/dist/example-ng6-lib/example-ng6-lib-0.0.1.tgz
+
+npm publish ../example-ng6-lib/dist/example-ng6-lib/example-ng6-lib-0.0.1.tgz
 
 https://blog.angularindepth.com/the-angular-library-series-publishing-ce24bb673275
 
@@ -1698,16 +1760,6 @@ template: module
 ---
 # thinking in Event Streams
 
-
----
-# Before we start
-Angular 6 came with RxJS 6 which breaks backward compatibility. 
-To make it work on legacy project you should use rxjs-compat 
-```
-npm install rxjs@6 rxjs-compat@6 --save
-```
-
-
 ---
 # What's an Observable
 Observable == stream of events 
@@ -1744,7 +1796,7 @@ https://jsfiddle.net/8ptLorpj/
           error =>  this.errorMessage = <any>error);
 ```
 
-Remember to ``unsubscribe`` the stream at the end to prevent memory leaks
+Remember to `unsubscribe` the stream at the end to prevent memory leaks
 
 
 ---
@@ -1959,22 +2011,12 @@ https://angular.io/docs/ts/latest/api/common/index/AsyncPipe-pipe.html
 
 https://blog.thoughtram.io/angular/2016/01/07/taking-advantage-of-observables-in-angular2-pt2.html
 
-
 ---
-# Piping requests
+# RXJs 5 -> 6
+Angular 6 came with RxJS 6 which breaks backward compatibility. 
+To make it work on legacy project you should use rxjs-compat 
 ```
-export class WikiSmartComponent implements OnInit {
-  items: Observable<string[]>;
-  constructor (private wikipediaService: WikipediaService) {}
-  private searchTermStream = new Subject<string>();
-  search(term: string) { this.searchTermStream.next(term); }
-  ngOnInit() {
-    this.items = this.searchTermStream
-      .debounceTime(300)
-      .distinctUntilChanged()
-      .switchMap((term: string) => this.wikipediaService.search(term));
-  }
-}
+npm install rxjs@6 rxjs-compat@6 --save
 ```
 
 
@@ -2235,13 +2277,13 @@ Idea: limit the propagation of changes
 # OnPush Strategy 
 vs managing @Inputs and @Output
 
----
 This implies that to use OnPush you should tend towards immutable inputs 
 ---
----
-# Animation
----
 # OnPush vs Observable
+
+cd: ChangeDetectorRef
+
+cd.markForCheck(); 
 
 ---
 template: module
@@ -2283,6 +2325,9 @@ class: lab
 Virtual Scrolling
 * https://material.angular.io/cdk/scrolling/overview
 
+track by
+* https://toddmotto.com/angular-ngfor-template-element
+
 
 ---
 template: module
@@ -2319,7 +2364,7 @@ Globally
 ---
 # Angular CLI Performance Budgets
 Automatically monitor application and bundle size while you develop and add dependencies 
-* Default budgets in ``angular.json``, but can be customized
+* Default budgets in `angular.json`, but can be customized
 ```json
 "budgets": [{
   "type": "initial",
