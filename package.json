@@ -25,6 +25,7 @@
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
+    "mermaid": "^8.0.0-rc.8",
     "//": "used for generating and managing slides",
     "@angular-devkit/build-angular": "~0.10.0",
     "@angular/cli": "~7.0.5",
