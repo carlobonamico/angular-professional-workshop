@@ -1,0 +1,855 @@
+{
+    "_shards": {
+      "failed": 0,
+      "skipped": 0,
+      "successful": 120,
+      "total": 120
+    },
+    "aggregations": {
+      "top-collections": {
+        "buckets": [
+          {
+            "doc_count": 541324,
+            "key": "americana"
+          },
+          {
+            "doc_count": 329098,
+            "key": "printdisabled"
+          },
+          {
+            "doc_count": 328709,
+            "key": "inlibrary"
+          },
+          {
+            "doc_count": 328197,
+            "key": "internetarchivebooks"
+          },
+          {
+            "doc_count": 244816,
+            "key": "china"
+          },
+          {
+            "doc_count": 154033,
+            "key": "additional_collections"
+          },
+          {
+            "doc_count": 95383,
+            "key": "toronto"
+          },
+          {
+            "doc_count": 80948,
+            "key": "digitallibraryindia"
+          },
+          {
+            "doc_count": 73227,
+            "key": "texts"
+          },
+          {
+            "doc_count": 69241,
+            "key": "cdl"
+          },
+          {
+            "doc_count": 50235,
+            "key": "magazine_rack"
+          },
+          {
+            "doc_count": 48061,
+            "key": "robarts"
+          },
+          {
+            "doc_count": 43895,
+            "key": "opensource"
+          },
+          {
+            "doc_count": 41963,
+            "key": "bharatzindabad"
+          },
+          {
+            "doc_count": 40679,
+            "key": "europeanlibraries"
+          }
+        ],
+        "doc_count_error_upper_bound": 10382,
+        "sum_other_doc_count": 1205382
+      },
+      "top-creators": {
+        "buckets": [
+          {
+            "doc_count": 16730,
+            "key": "eric"
+          },
+          {
+            "doc_count": 5603,
+            "key": "defense technical information center"
+          },
+          {
+            "doc_count": 5570,
+            "key": "not available"
+          },
+          {
+            "doc_count": 5327,
+            "key": "lee enterprises"
+          },
+          {
+            "doc_count": 3239,
+            "key": "dr. narinder sharma"
+          },
+          {
+            "doc_count": 3058,
+            "key": "midland news association"
+          },
+          {
+            "doc_count": 2626,
+            "key": "united states patent and trademark office"
+          },
+          {
+            "doc_count": 2552,
+            "key": "kos media"
+          },
+          {
+            "doc_count": 1598,
+            "key": "shakespeare, william, 1564-1616"
+          },
+          {
+            "doc_count": 1534,
+            "key": "tva"
+          },
+          {
+            "doc_count": 1309,
+            "key": "nash holdings, llc"
+          },
+          {
+            "doc_count": 1206,
+            "key": "nindi punj"
+          },
+          {
+            "doc_count": 1145,
+            "key": "cambridge newspapers ltd"
+          },
+          {
+            "doc_count": 1057,
+            "key": "devon, dorset & somerset series of newspapers ltd"
+          },
+          {
+            "doc_count": 1057,
+            "key": "scott, walter, sir, 1771-1832"
+          }
+        ],
+        "doc_count_error_upper_bound": 735,
+        "sum_other_doc_count": 1034949
+      },
+      "top-languages": {
+        "buckets": [
+          {
+            "doc_count": 1204458,
+            "key": "English"
+          },
+          {
+            "doc_count": 9031,
+            "key": "French"
+          },
+          {
+            "doc_count": 5398,
+            "key": "German"
+          },
+          {
+            "doc_count": 2601,
+            "key": "Spanish"
+          },
+          {
+            "doc_count": 2033,
+            "key": "Unknown"
+          },
+          {
+            "doc_count": 1992,
+            "key": "Italian"
+          },
+          {
+            "doc_count": 1116,
+            "key": "undetermined"
+          },
+          {
+            "doc_count": 791,
+            "key": "Latin"
+          },
+          {
+            "doc_count": 559,
+            "key": "English and French"
+          },
+          {
+            "doc_count": 532,
+            "key": "Dutch"
+          }
+        ],
+        "doc_count_error_upper_bound": 121,
+        "sum_other_doc_count": 4975
+      },
+      "top-subject": {
+        "buckets": [
+          {
+            "doc_count": 16729,
+            "key": "ERIC Archive"
+          },
+          {
+            "doc_count": 14591,
+            "key": "C-DAK"
+          },
+          {
+            "doc_count": 13347,
+            "key": "Newspaper"
+          },
+          {
+            "doc_count": 12665,
+            "key": "RMSC"
+          },
+          {
+            "doc_count": 12467,
+            "key": "genealogy"
+          },
+          {
+            "doc_count": 12169,
+            "key": "IIIT"
+          },
+          {
+            "doc_count": 10975,
+            "key": "Fiction"
+          },
+          {
+            "doc_count": 10256,
+            "key": "public domain"
+          },
+          {
+            "doc_count": 7120,
+            "key": "bub_upload"
+          },
+          {
+            "doc_count": 6981,
+            "key": "General"
+          },
+          {
+            "doc_count": 6777,
+            "key": "Banasthali"
+          },
+          {
+            "doc_count": 6511,
+            "key": "West Bengal Public Library"
+          },
+          {
+            "doc_count": 6467,
+            "key": "software"
+          },
+          {
+            "doc_count": 6280,
+            "key": "United States"
+          },
+          {
+            "doc_count": 5729,
+            "key": "English language"
+          }
+        ],
+        "doc_count_error_upper_bound": 4190,
+        "sum_other_doc_count": 3569421
+      }
+    },
+    "hits": {
+      "hits": [
+        {
+          "_id": "sherlockholmes_201405|0478784fe3d27331da0e7d42b2eaf04f5b62ac72",
+          "_index": "fts2_index",
+          "_score": 6.680988,
+          "_type": "book",
+          "fields": {
+            "created_on": "2016-10-08 16:33:51",
+            "file_creation_mtime": "1399047727",
+            "filename": [
+              "sherlockholmes_abbyy.gz"
+            ],
+            "identifier": [
+              "sherlockholmes_201405"
+            ],
+            "meta_collection": [
+              "opensource"
+            ],
+            "meta_creator": [
+              "Sir Arthur Conan Doyle"
+            ],
+            "meta_creatorSorter": [
+              "sir arthur conan doyle"
+            ],
+            "meta_downloads": [
+              452
+            ],
+            "meta_languageSorter": [
+              "English"
+            ],
+            "meta_mediatype": [
+              "texts"
+            ],
+            "meta_publicdate": [
+              "2014-05-02T15:32:01Z"
+            ],
+            "meta_subjectSorter": [
+              "A Scandal in Bohemia",
+              "The Red-Headed League",
+              "A Case of Identity",
+              "The Boscombe Valley Mystery",
+              "The Five Orange Pips",
+              "The Man with the Twisted Lip",
+              "The Adventure of the Blue Carbuncle",
+              "The Adventure of the Speckled Band",
+              "The Adventure of the Engineer's",
+              "Thumb",
+              "The Adventure of the Noble Bachelor",
+              "The Adventure of the Beryl Coronet",
+              "The Adventure of the Copper Beeches"
+            ],
+            "meta_title": [
+              "Adventures of Sherlock Holmes"
+            ],
+            "page_num": [
+              223
+            ],
+            "sha1_file": "557c726519d1607e52f125ed58d94318e445b3fa",
+            "updated_on": "2018-07-11 17:12:47"
+          },
+          "highlight": {
+            "text": [
+              "Twisted Lip\nThe {{{Adventure}}} of the Blue Carbuncle\nThe {{{Adventure}}} of the Speckled Band The {{{Adventure}}} of the Engineer's"
+            ]
+          }
+        },
+        {
+          "_id": "workslon00londuoft|1f4f0e5322ed71b43bd4ee3f3495874c58c32e14",
+          "_index": "fts2_index",
+          "_score": 6.667405,
+          "_type": "book",
+          "fields": {
+            "created_on": "2016-10-07 22:12:05",
+            "file_creation_mtime": "1162002110",
+            "filename": [
+              "workslon00londuoft_abbyy.gz"
+            ],
+            "identifier": [
+              "workslon00londuoft"
+            ],
+            "meta_collection": [
+              "robarts",
+              "toronto"
+            ],
+            "meta_creator": [
+              "London, Jack, 1876-1916"
+            ],
+            "meta_creatorSorter": [
+              "london, jack, 1876-1916"
+            ],
+            "meta_date": [
+              "1909-24-01T00:00:00Z"
+            ],
+            "meta_downloads": [
+              407
+            ],
+            "meta_languageSorter": [
+              "English"
+            ],
+            "meta_mediatype": [
+              "texts"
+            ],
+            "meta_publicdate": [
+              "2006-10-27T07:09:56Z"
+            ],
+            "meta_publisher": [
+              "[New York McKinlay, Stone & Mackenzie]"
+            ],
+            "meta_title": [
+              "Works"
+            ],
+            "page_num": [
+              422
+            ],
+            "sha1_file": "dffc53a1c4dcc9da9b7584bc299d391119ed8c20",
+            "updated_on": "2018-10-30 22:35:55"
+          },
+          "highlight": {
+            "text": [
+              "to avoid being toppled over backward.\n38 {{{ADVENTURE}}}\n{{{ADVENTURE}}} 39\n'\"He's sleeping out and far to-night/\""
+            ]
+          }
+        },
+        {
+          "_id": "Sonic_Adventure_1998_E_4L|6aa6f861e2ed8fc0d97f418a979e135b94db14c6",
+          "_index": "fts2_index",
+          "_score": 6.658279,
+          "_type": "book",
+          "fields": {
+            "created_on": "2017-05-16 21:29:21",
+            "file_creation_mtime": "1491627727",
+            "filename": [
+              "Sonic_Adventure_1998_E_4L_abbyy.gz"
+            ],
+            "identifier": [
+              "Sonic_Adventure_1998_E_4L"
+            ],
+            "meta_collection": [
+              "segadreamcastmanuals",
+              "consolemanuals",
+              "manuals",
+              "additional_collections"
+            ],
+            "meta_downloads": [
+              37
+            ],
+            "meta_languageSorter": [
+              "English"
+            ],
+            "meta_mediatype": [
+              "texts"
+            ],
+            "meta_publicdate": [
+              "2017-04-08T04:36:33Z"
+            ],
+            "meta_title": [
+              "Sonic Adventure (1998)(E)(4L)"
+            ],
+            "page_num": [
+              136
+            ],
+            "sha1_file": "ec7b2d2b872c123746141ea8c372337628ba19cc",
+            "updated_on": "2018-09-17 01:38:24"
+          },
+          "highlight": {
+            "text": [
+              "details, see P.12.\n{{{ADVENTURE}}} FLOW\nThe central game of Sonic {{{Adventure}}} is called the \u201c{{{adventure}}} mode\".\nThe adventure"
+            ]
+          }
+        },
+        {
+          "_id": "vgmuseum_advclub_advclub33-34|08bd22ad8e97a965071d6450593ac9b9e3b0d4a2",
+          "_index": "fts2_index",
+          "_score": 6.65776,
+          "_type": "book",
+          "fields": {
+            "created_on": "2016-10-09 13:08:52",
+            "file_creation_mtime": "1471121641",
+            "filename": [
+              "advclub_advclub33-34_abbyy.gz"
+            ],
+            "identifier": [
+              "vgmuseum_advclub_advclub33-34"
+            ],
+            "meta_collection": [
+              "vgmuseum",
+              "softwarehistory"
+            ],
+            "meta_downloads": [
+              27
+            ],
+            "meta_languageSorter": [
+              "English"
+            ],
+            "meta_mediatype": [
+              "texts"
+            ],
+            "meta_publicdate": [
+              "2016-08-13T20:40:22Z"
+            ],
+            "meta_title": [
+              "advclub advclub33 34"
+            ],
+            "page_num": [
+              25
+            ],
+            "sha1_file": "cbdede544ff7472a8faae70cc2b323247d953084",
+            "updated_on": "2018-10-22 06:24:40"
+          },
+          "highlight": {
+            "text": [
+              "would-be {{{adventure}}} writers. What about an {{{adventure}}} \"workshop\" or \"clinic\" to help us amateur {{{adventure}}} writers"
+            ]
+          }
+        },
+        {
+          "_id": "ERIC_ED471720|eb28a20dfdb44e1bf6549f0955bb30da84f2169f",
+          "_index": "fts2_index",
+          "_score": 6.6498494,
+          "_type": "book",
+          "fields": {
+            "created_on": "2016-10-09 09:18:53",
+            "file_creation_mtime": "1452916938",
+            "filename": [
+              "ERIC_ED471720_abbyy.gz"
+            ],
+            "identifier": [
+              "ERIC_ED471720"
+            ],
+            "meta_collection": [
+              "ericarchive",
+              "additional_collections"
+            ],
+            "meta_creator": [
+              "ERIC"
+            ],
+            "meta_creatorSorter": [
+              "eric"
+            ],
+            "meta_date": [
+              "1999-01-01T00:00:00Z"
+            ],
+            "meta_downloads": [
+              146
+            ],
+            "meta_languageSorter": [
+              "English"
+            ],
+            "meta_mediatype": [
+              "texts"
+            ],
+            "meta_publicdate": [
+              "2016-01-15T14:59:21Z"
+            ],
+            "meta_subjectSorter": [
+              "ERIC Archive",
+              "Adventure Education",
+              "At Risk Persons",
+              "British National Curriculum",
+              "Educational Practices",
+              "Educational Strategies",
+              "Elementary Secondary Education",
+              "Experiential Learning",
+              "Higher Education",
+              "Outdoor Education",
+              "Physical Education",
+              "Teacher Education",
+              "Womens Education",
+              "Youth Programs",
+              "Higgins, Peter, Ed.",
+              "Humberstone, Barbara, Ed."
+            ],
+            "meta_title": [
+              "ERIC ED471720: Outdoor Education and Experiential Learning in the U.K."
+            ],
+            "page_num": [
+              100
+            ],
+            "sha1_file": "124cf164489dc27df52c3a6454dd0569b3acff60",
+            "updated_on": "2018-11-23 22:31:45"
+          },
+          "highlight": {
+            "text": [
+              "Urban {{{Adventure}}}\nUrban {{{adventure}}} activities differentiate from other aspects of outdoor {{{adventure}}} due to"
+            ]
+          }
+        },
+        {
+          "_id": "ERIC_ED378027|44c6edd58f21c3ecfe0fff78ad96e20749cdf381",
+          "_index": "fts2_index",
+          "_score": 6.649832,
+          "_type": "book",
+          "fields": {
+            "created_on": "2016-10-09 13:20:19",
+            "file_creation_mtime": "1413816134",
+            "filename": [
+              "ERIC_ED378027_abbyy.gz"
+            ],
+            "identifier": [
+              "ERIC_ED378027"
+            ],
+            "meta_collection": [
+              "ericarchive",
+              "additional_collections"
+            ],
+            "meta_creator": [
+              "ERIC"
+            ],
+            "meta_creatorSorter": [
+              "eric"
+            ],
+            "meta_date": [
+              "1994-04-01T00:00:00Z"
+            ],
+            "meta_downloads": [
+              56
+            ],
+            "meta_languageSorter": [
+              "English"
+            ],
+            "meta_mediatype": [
+              "texts"
+            ],
+            "meta_publicdate": [
+              "2014-10-20T14:37:31Z"
+            ],
+            "meta_subjectSorter": [
+              "ERIC Archive",
+              "Adolescents",
+              "Adventure Education",
+              "At Risk Persons",
+              "Environmental Education",
+              "Experiential Learning",
+              "Foreign Countries",
+              "Group Activities",
+              "Group Counseling",
+              "Individual Development",
+              "Outdoor Education",
+              "Safety",
+              "Therapeutic Recreation",
+              "Therapy",
+              "Young Adults",
+              "Youth Problems"
+            ],
+            "meta_title": [
+              "ERIC ED378027: A Reading List."
+            ],
+            "page_num": [
+              11
+            ],
+            "sha1_file": "632e0a72360086b5a6d7498d77ddbf86cb8b1bb6",
+            "updated_on": "2018-07-14 18:31:19"
+          },
+          "highlight": {
+            "text": [
+              "following categories: {{{adventure}}} (general);  outdoor and {{{adventure}}} safety; {{{adventure}}} activities and games;"
+            ]
+          }
+        },
+        {
+          "_id": "ambiguousadventu00kane|49e7ea7dfbf8c271feab9f20d61ce5e8613c680e",
+          "_index": "fts2_index",
+          "_score": 6.64509,
+          "_type": "book",
+          "fields": {
+            "created_on": "2016-10-08 05:52:50",
+            "file_creation_mtime": "1274868395",
+            "filename": [
+              "ambiguousadventu00kane_abbyy.gz"
+            ],
+            "identifier": [
+              "ambiguousadventu00kane"
+            ],
+            "meta_collection": [
+              "inlibrary",
+              "printdisabled",
+              "internetarchivebooks",
+              "americana"
+            ],
+            "meta_creator": [
+              "Kane, Hamidou"
+            ],
+            "meta_creatorSorter": [
+              "kane, hamidou"
+            ],
+            "meta_date": [
+              "1969-01-01T00:00:00Z"
+            ],
+            "meta_downloads": [
+              128
+            ],
+            "meta_languageSorter": [
+              "English"
+            ],
+            "meta_mediatype": [
+              "texts"
+            ],
+            "meta_publicdate": [
+              "2010-05-10T22:49:29Z"
+            ],
+            "meta_publisher": [
+              "New York, Collier Books"
+            ],
+            "meta_title": [
+              "Ambiguous adventure"
+            ],
+            "page_num": [
+              202
+            ],
+            "sha1_file": "753a9b0672d1efd5687641c9702e23e672200aed",
+            "updated_on": "2018-11-23 20:43:19"
+          },
+          "highlight": {
+            "text": [
+              "rte^/\nAmbiguous {{{Adventure}}} A Division of Macmillan Publishing Co., Inc.\nAmliifiiimis {{{Adventure}}}\nCheikh Hamidou"
+            ]
+          }
+        },
+        {
+          "_id": "vgmuseum_redherring_redherring14|7832a83b1fba6aedca70502c75d1ed2e11d72531",
+          "_index": "fts2_index",
+          "_score": 6.6443977,
+          "_type": "book",
+          "fields": {
+            "created_on": "2016-10-08 23:46:55",
+            "file_creation_mtime": "1471131332",
+            "filename": [
+              "redherring_redherring14_abbyy.gz"
+            ],
+            "identifier": [
+              "vgmuseum_redherring_redherring14"
+            ],
+            "meta_collection": [
+              "vgmuseum",
+              "softwarehistory"
+            ],
+            "meta_downloads": [
+              28
+            ],
+            "meta_languageSorter": [
+              "English"
+            ],
+            "meta_mediatype": [
+              "texts"
+            ],
+            "meta_publicdate": [
+              "2016-08-13T22:09:26Z"
+            ],
+            "meta_title": [
+              "redherring redherring14"
+            ],
+            "page_num": [
+              45
+            ],
+            "sha1_file": "8ff6538f00f9e7497186fbe9a8eaceb7723a52e0",
+            "updated_on": "2017-09-19 00:34:28"
+          },
+          "highlight": {
+            "text": [
+              "Adult II Adultia\n{{{Adventure}}} 100 {{{Adventure}}} 200 {{{Adventure}}} 550 {{{Adventure}}} In Atlantis {{{Adventure}}} In Time And Space"
+            ]
+          }
+        },
+        {
+          "_id": "robertlouissteve00robe|d42a8bc211eb0823392b0dfd47a4d4032b3d2393",
+          "_index": "fts2_index",
+          "_score": 6.643224,
+          "_type": "book",
+          "fields": {
+            "created_on": "2017-06-07 17:26:22",
+            "file_creation_mtime": "1496829161",
+            "filename": [
+              "robertlouissteve00robe_abbyy.gz"
+            ],
+            "identifier": [
+              "robertlouissteve00robe"
+            ],
+            "meta_collection": [
+              "inlibrary",
+              "printdisabled",
+              "internetarchivebooks",
+              "china"
+            ],
+            "meta_creator": [
+              "Kiely, Robert"
+            ],
+            "meta_creatorSorter": [
+              "kiely, robert"
+            ],
+            "meta_date": [
+              "1964-01-01T00:00:00Z"
+            ],
+            "meta_downloads": [
+              36
+            ],
+            "meta_languageSorter": [
+              "English"
+            ],
+            "meta_mediatype": [
+              "texts"
+            ],
+            "meta_publicdate": [
+              "2013-04-08T15:14:14Z"
+            ],
+            "meta_publisher": [
+              "Cambridge, Mass. : Harvard University Press"
+            ],
+            "meta_subjectSorter": [
+              "Stevenson, Robert Louis, -- 1850-1894",
+              "Stevenson, Robert Louis, 1850-1894"
+            ],
+            "meta_title": [
+              "Robert Louis Stevenson and the fiction of adventure"
+            ],
+            "page_num": [
+              306
+            ],
+            "sha1_file": "ab4de274dbfe78ae3007abccd5c798e04bf8c307",
+            "updated_on": "2018-10-04 02:00:06"
+          },
+          "highlight": {
+            "text": [
+              "OF {{{ADVENTURE}}} 19\nII {{{ADVENTURE}}} AS BOY\u2019S DAYDREAM 61\nIII {{{ADVENTURE}}} AS COMIC SATIRE 109\nIV {{{ADVENTURE}}} AS FABLE"
+            ]
+          }
+        },
+        {
+          "_id": "popularseriesfic00thom|20c691b28f79a386ea5f5ca1672f8574dad89f8b",
+          "_index": "fts2_index",
+          "_score": 6.6429944,
+          "_type": "book",
+          "fields": {
+            "created_on": "2016-10-08 08:39:44",
+            "file_creation_mtime": "1345259859",
+            "filename": [
+              "popularseriesfic00thom_abbyy.gz"
+            ],
+            "identifier": [
+              "popularseriesfic00thom"
+            ],
+            "meta_collection": [
+              "inlibrary",
+              "printdisabled",
+              "internetarchivebooks",
+              "china"
+            ],
+            "meta_creator": [
+              "Rebecca L. Thomas"
+            ],
+            "meta_creatorSorter": [
+              "rebecca l. thomas"
+            ],
+            "meta_date": [
+              "2005-01-01T00:00:00Z"
+            ],
+            "meta_downloads": [
+              181
+            ],
+            "meta_languageSorter": [
+              "English"
+            ],
+            "meta_mediatype": [
+              "texts"
+            ],
+            "meta_publicdate": [
+              "2012-05-08T15:41:42Z"
+            ],
+            "meta_publisher": [
+              "Libraries Unlimited"
+            ],
+            "meta_subjectSorter": [
+              "Children's literature in series -- Bibliography.",
+              "Children's stories -- Bibliography.",
+              "Young adult fiction -- Bibliography.",
+              "Children -- Books and reading -- United States.",
+              "Teenagers -- Books and reading -- United States.",
+              "Children's libraries -- Book selection.",
+              "Young adults libraries -- Book selection."
+            ],
+            "meta_title": [
+              "Popular series fiction for middle school and teen readers"
+            ],
+            "page_num": [
+              540
+            ],
+            "sha1_file": "fbd724ed443c3b07b2bcb0b1dc3ee29931ffc9a9",
+            "updated_on": "2018-10-16 10:08:34"
+          },
+          "highlight": {
+            "text": [
+              "The Illyrian {{{Adventure}}} \u2666 1986\n2. The El Dorado {{{Adventure}}} \u2666 1987 3- The Drackenberg {{{Adventure}}} \u2666 1988\n4. The"
+            ]
+          }
+        }
+      ],
+      "max_score": 6.680988,
+      "total": 1247990
+    },
+    "timed_out": false,
+    "took": 8640
+  }
