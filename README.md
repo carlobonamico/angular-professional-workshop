@@ -12,7 +12,14 @@ TODO
 * [labs.md](labs.md)
  
 # References
-TODO 
+Here you are the references that I mentioned during the workshop: 
+* https://alligator.io/angular/route-resolvers/
+More on Forms
+* https://medium.com/spektrakel-blog/angular2-building-nested-reactive-forms-7978ecd145e4
+* https://medium.com/@a.yurich.zuev/angular-nested-template-driven-form-4a3de2042475
+* https://www.dev6.com/Angular2-Conditional-Validation-with-Reactive-Forms
+Building Libraries with assets (images, global css)
+* https://github.com/angular/angular-cli/issues/11071#issuecomment-416942988
 
 # ABSTRACT
 You have adopted Angular for your projects because you experienced first-hand its productive and robust approach to HTML5 Application development, and the advantages of a Component-Oriented design based on Encapsulation and Separation of Responsibilities. However, to fully exploit the Power of Components, you need to aggregate them in a consistent and modular set, and to take advanced of advanced concepts. In this workshop we first share our experience in building several Component Libraries, from API Design concepts to advanced Component interaction patterns, from packaging and documentation to refactoring & interoperability. We then move to addressing advanced Angular topics such as Dynamic Templating, Reactive features, Change Detection and Performance, which are key to implementing challenging applicaitons with world-class User Experiences with Angular.
