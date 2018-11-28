@@ -1,0 +1,8 @@
+section {
+  padding: 10px;
+  background-color: lightgoldenrodyellow;
+}
+
+.active {
+background-color: orange;
+}

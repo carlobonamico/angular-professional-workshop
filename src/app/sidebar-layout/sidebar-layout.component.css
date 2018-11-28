@@ -1,0 +1,10 @@
+:host {
+  display: flex;
+  flex-direction: row;
+}
+
+.sidebar {
+  flex-shrink: 0;
+  background-color: green; 
+
+}

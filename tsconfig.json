@@ -20,6 +20,18 @@
     "paths": {
       "basiclib": [
         "projects/basiclib/src/"
+      ],
+      "testlib": [
+        "dist/testlib"
+      ],
+      "testlib/*": [
+        "dist/testlib/*"
+      ],
+      "demolib": [
+        "dist/demolib"
+      ],
+      "demolib/*": [
+        "dist/demolib/*"
       ]
     }
   }

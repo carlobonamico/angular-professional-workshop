@@ -3,8 +3,10 @@
   <header>
     <div style="text-align:center">
       <h1 class="app-title">
-        Welcome to BookFlix!
+        Welcome to BookFlix! Libro del Giorno
       </h1>
+      <div *ngIf="randomBookStream | async as randomBook2">
+        {{randomBook2.title}}</div>
       <span class="app-title left-image">
 
         <img width="100" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
@@ -12,31 +14,54 @@
     </div>
   </header>
   <div class="content sidebar-container">
+    <app-sidebar-layout>
+      <div class="sidebar">
 
-    <div class="sidebar">
+        <app-categories-list [categories]="categories"
+          [selectedCategory]="currentCategory"
+          (selected)="selectCategory($event)">
 
+        </app-categories-list>
 
-    </div>
-    <div class="content">
-      <div class="bookCardSet">
-        <div *ngFor="let book of books" class="bookCard">
-          <div hidden>{{book.fields.identifier}}</div>
-          <img [src]="'https://archive.org/download/'+book.fields.identifier+'/page/cover_t.jpg'">
-          <div>{{book.fields.meta_title}}</div>
-          <div>{{book.fields.meta_creator}}</div>
+        <button (click)="addLanguage()">Add Language</button>
+        <div *ngIf="randomBookStream | async as randomBook">
+          {{randomBook.title}}
+          {{randomBook.author}}
+
         </div>
+
+        <app-top-languages [buckets]="topLanguagesStream | async"></app-top-languages>
+
       </div>
 
-      <div class="bookCardSet">
-        <div *ngFor="let book of books" class="bookCard">
-          <div hidden>{{book.fields.identifier}}</div>
-          <img [src]="'https://archive.org/download/'+book.fields.identifier+'/page/cover_t.jpg'">
-          <div>{{book.fields.meta_title}}</div>
-          <div>{{book.fields.meta_creator}}</div>
-        </div>
-      </div>
-    </div>
 
+      <div class="content">
+
+        <app-card-set>
+            <app-book-card *ngFor="let book of books"
+              [book]="book"
+            >
+            </app-book-card>
+        </app-card-set>
+
+<!--
+
+  <div class="bookCardSet">
+    <div *ngFor="let book of books" class="bookCard">
+      <div hidden>{{book.fields.identifier}}</div>
+      <img width="100" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+      <div>{{book.fields.meta_title}}</div>
+      <div>{{book.fields.meta_creator}}</div>
+          </div>
+        </div>
+      -->
+      </div>
+
+    </app-sidebar-layout>
+    <!--
+
+
+-->
 
   </div>
   <footer>
