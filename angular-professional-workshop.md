@@ -413,6 +413,17 @@ name: types_of_components_2_flow_up
 background-image: url(images/codemotion/30.png)
 background-size: contain
 
+
+---
+# How to configure an application
+
+* before AOT: using environment files
+* after AOT:
+- Using a custom js file in the index.html with some global variables to configure the application
+- Using a server side configuration retrived during the application startup.
+- Using a json file published from the same server where the application is.
+
+
 ---
 # Publishing events
 Never communicate directly with siblings
@@ -621,6 +632,7 @@ class MyComponent {
 }
 ```
 ---
+exclude: true
 # LAB 
 Create the LogService and inject it into the other services
 
@@ -631,6 +643,8 @@ Injector Hierarchy
 * https://angular.io/docs/ts/latest/guide/dependency-injection.html
 * https://blog.thoughtram.io/angular/2015/05/18/dependency-injection-in-angular-2.html
 ---
+exclude: true
+
 # Pattern: Detect Parent Component
 * with explicit parameter
 * with Dependency Injection
@@ -785,6 +799,11 @@ Prevents errors
 
 ---
 # Design vs Refactoring
+* Overdesign vs Extension points
+* primitives vs orchestrators
+* Expand-Contract pattern
+* deprecation
+* console warnings
 ---
 template: module
 ## Implementing a Component Library
@@ -1349,57 +1368,6 @@ Per passare una variabile implicita si fa cosi:
 http://www.bentedder.com/angular-4-templates-passing-methods-context-ngTemplateOutlet-ngTemplateOutletContext/
 
 ---
-# Riferimenti
-https://blog.angular-university.io/angular-ng-template-ng-container-ngtemplateoutlet/
-
-
----
-# Example
-
-List with customizable content
-```typescript
-@Component({
-  selector: 'awesome-list',
-  templateUrl: 'awesome-list.component.html',
-})
-export class CardComponent {
-    @Input() itemTemplate: string = '';
-}
-```
-
-```html
-<div class="list">
-  <div *ngFor="let message of messages" class="list-item">
-    <ng-container 
-      *ngTemplateOutlet="itemTemplate;context:ctx">
-    </ng-container>
-  </div>
-</div>
-```
-
----
-```html
-      <ng-template>
-          <button class="tab-button" 
-                  (click)="login()">{{loginText}}</button>
-          <button class="tab-button" 
-                  (click)="signUp()">{{signUpText}}</button>
-      </ng-template>
-
-<div class="lessons-list" *ngIf="lessons else loading">
-  ... 
-</div>
-
-<ng-template #loading>
-    <div>Loading...</div>
-</ng-template>
-```
----
-# Displaying content from the template
-```html
-<ng-container *ngTemplateOutlet="loading"></ng-container>
-```
----
 # In a component
 ```html
 @Component({
@@ -1413,14 +1381,6 @@ export class CardComponent {
 </ng-container>
 `})
 ```
-???
-this template, unlike the previous templates also has one input variable (it could also have several)
-    the input variable is called lessonsCounter, and it's defined via a ng-template property using the prefix let-
-    The variable lessonsCounter is visible inside the ng-template body, but not outside
-    the content of this variable is determined by the expression that its assigned to the property let-lessonsCounter
-    That expression is evaluated against a context object, passed to ngTemplateOutlet together with the template to instantiate
-    This context object must then have a property named estimate, for any value to be displayed inside the template
-    the context object is passed to ngTemplateOutlet via the context property, that can receive any expression that evaluates to an object
 
 ```ts
 export class AppComponent {
@@ -1429,54 +1389,8 @@ export class AppComponent {
     ctx = {estimate: this.totalEstimate};
 ```  
 ---
-#Template as input
-```ts
-@Component({
-    selector: 'tab-container',
-    template: `
-    
-<ng-template #defaultTabButtons>
-    
-    <div class="default-tab-buttons">
-        ...
-    </div>
-    
-</ng-template>
-<ng-container 
-  *ngTemplateOutlet="headerTemplate ? headerTemplate: defaultTabButtons">
-    
-</ng-container>
-... rest of tab container component ...
-`})
-export class TabContainerComponent {
-    @Input()
-    headerTemplate: TemplateRef<any>;
-}
-```
-
----
-# Placeholder
-```html
-<ng-container
-  *ngTemplateOutlet="layoutTemplate; context: { on: this.on, toggle: this.toggle, fns: { toggle: this.toggle } }">
-</ng-container>
-```
-The state passed from the toggle component is explicitly declared by the parent component in the <ng-template> using the let attribute.
-
-The let attribute is constructed like this: let-templatevar="inputvar" where templatevar is the name that is used to reference the value inside the <ng-template> and inputvar is the name of the variable provided by the <toggle> component to the template. This syntax allows the parent component to avoid name collisions, in case there is already an inputvar in the parent scope.
----
-# Using the template-based component
-```
-<toggle [layoutTemplate]="myTemplate"></toggle>
-<ng-template #myTemplate></ng-template>
-```
-
----
-# Refactoring
-
-* Expand-Contract pattern
-* deprecation
-* console warnings
+# Riferimenti
+https://blog.angular-university.io/angular-ng-template-ng-container-ngtemplateoutlet/
 
 ---
 template: module
@@ -1511,50 +1425,16 @@ Requirements change slightly
 examples
 ---
 ## Build Process
+* compile ts
+* process html templates
+* embed static assets, css
+
 ## Metadata Processing
+* create metadata.json
+
 ---
 ## Runtime loading
 `import`
-
----
-## Library Format
-Unfortunately, there is no standard, universal way to distribute JS code 
-
-Although we are getting there...
-
-
----
-# Improve productivity
-
-http://blog.mgechev.com/2017/04/23/angular-tooling-codelyzer-angular-cli-ngrev/
-
-
-
-# Angular CLI
-https://github.com/angular/angular-cli
-
-Let's try it
-
-
----
-# How to configure an application
-
-* before AOT: using environment files
-* after AOT:
-- Using a custom js file in the index.html with some global variables to configure the application
-- Using a server side configuration retrived during the application startup.
-- Using a json file published from the same server where the application is.
-
-
----
-# packaging
-
-* Angular-cli allows to create a build package for an entire application
-```
-ng build --prod
-```
-
-But... no methods to build a library... until yesterday!
 
 ---
 ## Angular Library Format
@@ -1567,12 +1447,11 @@ https://www.youtube.com/watch?v=unICbsPGFIA&feature=em-subs_digest-vrecs
 
 
 ---
+# packaging a library before Angular 6
 For a long time each project had to implement this process ad-hoc.
 
 Then ng-packagr emerged thanks to David Herges
 * https://github.com/ng-packagr/ng-packagr
----
-# packaging a library before Angular 6
 
 * A simple application you can use to maka a library
 https://github.com/filipesilva/angular-quickstart-lib
@@ -1696,14 +1575,12 @@ and use the widgets you made.
 ng serve demo-app
 ng serve demo-website
 ```
-
-
----
-# Paths in tsconfig.json
-For the test app
 ---
 ## Source -level build vs packaged build
 Live Reload
+
+# Paths in tsconfig.json
+For the test app
 
 ---
 # packaging
@@ -1800,6 +1677,7 @@ Remember to `unsubscribe` the stream at the end to prevent memory leaks
 
 
 ---
+exclude: true
 # Without using => functions
 
 ```
@@ -1902,6 +1780,7 @@ A subject is an observer that can be controlled
 
 * http://reactivex.io/documentation/subject.html
 
+* https://medium.com/@luukgruijs/understanding-rxjs-behaviorsubject-replaysubject-and-asyncsubject-8cc061f1cfc0
 
 ---
 # Using subjects
@@ -1964,6 +1843,7 @@ https://jsfiddle.net/zv1yt9bq/
 
 
 ---
+exclude: true
 # ThrottleTime Operator
 ```
 var observable = Rx.Observable.interval(1000);
@@ -2021,7 +1901,7 @@ npm install rxjs@6 rxjs-compat@6 --save
 
 
 ---
-# Pipeble operators
+# Pipeable operators
 ## Before
 ```
 source
@@ -2123,10 +2003,12 @@ source$.pipe(
 ```
 
 ---
+exclude: true
 # basic operators
 
 .aside[ Similar to arrays or Java Streams]
 ---
+exclude: true
 # what’s new in RX.js 6.x
 
 rxjs/operators
@@ -2151,6 +2033,7 @@ switch -> switchAll
 finally -> finalize
 
 ---
+exclude: true
 you can still use 
 rxjs-compat
 
@@ -2246,7 +2129,8 @@ Zone Js
 
 ---
 
-Change Detection
+# Change Detection
+
 https://auth0.com/blog/understanding-angular-2-change-detection/
 
 http://blog.thoughtram.io/angular/2016/02/22/angular-2-change-detection-explained.html
@@ -2314,6 +2198,7 @@ Why?
 Use Component boundaries
 
 ---
+exclude: true
 # TODO Example
 
 ---
@@ -2356,7 +2241,6 @@ ngDoCheck(){
 }
 ```
 
-Globally
 ---
 # Augury
 # Augury labs
@@ -2381,14 +2265,11 @@ template: module
 ## StoryBook
 * https://blog.angularindepth.com/mixing-storybook-with-angular-with-a-sprinkle-of-applitools-8413bb950cf8
 ---
-# Upgrading Angular e.g 6->7
-ng update @angular/cli @angular/core
-
-
-
+# More on Angular
 * Full lab from my Codemotion Workshop
-  * https://github.com/carlobonamico/clean-code-design-principles-in-action
+  * https://github.com/carlobonamico/angular-component-based
 
+* Angular 1 and 2 branches
 
 ---
 ##How to continue by yourself: references for further learning
