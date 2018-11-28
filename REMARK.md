@@ -174,6 +174,6 @@ Default options:
 
 If a file ~/.live-server.json exists it will be loaded and used as default options for live-server on the command line. See "Usage from node" for option names.
 
-npx decktape http://localhost:8080/angular-professional-workshop.html remark angular-professional-workshop.pdf
+npx decktape remark http://localhost:8080/angular-professional-workshop.html angular-professional-workshop.pdf
 npx decktape http://localhost:8080/angular-professional-workshop.html
 npx decktape
