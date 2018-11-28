@@ -2,10 +2,19 @@
   "extends": "../tsconfig.json",
   "compilerOptions": {
     "outDir": "../out-tsc/app",
-    "types": []
+    "types": [],
+    "paths": {
+      "built_basiclib": [
+        "dist/basiclib"
+      ],
+      "basiclib": [
+        "projects/basiclib/src/"
+      ]
+    }
   },
   "exclude": [
     "test.ts",
     "**/*.spec.ts"
   ]
+
 }

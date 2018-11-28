@@ -1,0 +1,62 @@
+.app {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-title {
+  display: inline-block;
+  vertical-align: middle;
+  color: white;
+}
+
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.sidebar {
+  flex-shrink: 0;
+
+}
+
+
+.bookCardSet {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+  padding: 10px;
+}
+.bookCard {
+  display: flex;
+  flex-direction: column;
+  height: 220px;
+  max-width: 130px;
+  overflow: hidden;
+  margin: 10px;
+  padding: 10px;
+}
+
+.bookCard  img {
+  display: block;
+  max-width:100px;
+  max-height:100px;
+  width: auto;
+  height: auto;
+}
+
+header {
+  background-color:#090087;
+}
+
+footer {
+  background-color: #090087;
+  color: white;
+  padding: 10px;
+  font-size: 12px;
+}
